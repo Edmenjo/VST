@@ -7,6 +7,7 @@ package control;
 
 import ejbs.Counter;
 import ejbs.Song;
+import ejbs.VST;
 import ejbs.vstCartLocal;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class EjemploServlet extends HttpServlet {
         String command = request.getParameter("command");
         
         //String product = request.getParameter("product");
-        Song soong = new Song(request.getParameter("product"));
+        VST soong = new VST(request.getParameter("product"));
         
         HttpSession session = request.getSession();
         vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
@@ -57,7 +58,9 @@ public class EjemploServlet extends HttpServlet {
             try {
                 cart = (vstCartLocal) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/vstCart!ejbs.vstCartLocal");
                 session.setAttribute("Cart", cart);
+                counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
                 counter.newUser(session.getId());
+                
             } catch (NamingException ex) {
                 Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
             }

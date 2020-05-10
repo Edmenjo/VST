@@ -33,14 +33,6 @@ and open the template in the editor.
         background-attachment: fixed;
         color: orange;
     }
-    
-    .ilustrations {
-        display: flex;
-
-        justify-content: space-between;
-        align-items: baseline;
-        align-content: space-between;
-    }
 
     li{
         float: left;

@@ -20,13 +20,13 @@ import javax.ejb.Stateful;
 @Stateful
 public class vstCart implements vstCartLocal {
 
-    ArrayList<Song> products = new ArrayList();
+    ArrayList<VST> products = new ArrayList();
     
-    public void addProduct(Song product) {
+    public void addProduct(VST product) {
         products.add(product);
     }
 
-    public ArrayList<Song> getProducts() {
+    public ArrayList<VST> getProducts() {
         return products;
     }
 

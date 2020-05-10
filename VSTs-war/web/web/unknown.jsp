@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-        <link rel="stylesheet" href="resource/main.css"/>
+        <link rel="stylesheet" href="/VSTs-war/web/resource/main.css"/>
         <title>Unknown Command</title>
     </head>
     <body>

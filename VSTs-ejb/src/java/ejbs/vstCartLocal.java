@@ -14,9 +14,9 @@ import javax.ejb.Local;
  */
 @Local
 public interface vstCartLocal {
-    public void addProduct(Song product);
+    public void addProduct(VST product);
     
-    public ArrayList<Song> getProducts();
+    public ArrayList<VST> getProducts();
     
     public void remove();
 }

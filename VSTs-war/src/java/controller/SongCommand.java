@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ejbs.Playlist;
 import ejbs.Song;
+import ejbs.VST;
 import ejbs.vstCartLocal;
 import javax.ejb.EJB;
 import javax.naming.InitialContext;
@@ -56,36 +57,8 @@ public class SongCommand extends FrontCommand {
     private void getVST(){
 
         
-            /*if(!request.getParameter("peticion").equals("")){
             
-            String userSong = request.getParameter("peticion");
-        
-            //Song song1 = new Song("Depression & obsession",144);
-            //Song song2 = new Song("Ninety",458);
-            //Song song3 = new Song("Like a movie",140);
-            Song song1 = new Song(userSong);
-            
-            playlist = new Playlist();
-        
-            playlist.addSongToPlaylist(song1);
-            //playlist.addSongToPlaylist(song2);
-            //playlist.addSongToPlaylist(song3);
-            
-            
-            if (session.isNew()) {
-            session.setAttribute("playlist", playlist);
-            
-            } else {
-            session.removeAttribute("playlist");
-            Song otra = new Song(request.getParameter("peticion"));
-            playlist.addSongToPlaylist(otra);
-            if (session.getAttribute("playlist") == null) {
-            session.setAttribute("playlist", playlist);
-            } else {
-            session.setAttribute("playlist", playlist);
-            }
-            }*/
-            Song soong = new Song(request.getParameter("product"));
+            VST soong = new VST(request.getParameter("product"));
             
             
             vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
@@ -94,17 +67,13 @@ public class SongCommand extends FrontCommand {
                 try {
                     cart = (vstCartLocal) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/vstCart!ejbs.vstCartLocal");
                     session.setAttribute("Cart", cart);
+                    //counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
                     counter.newUser(session.getId());
                 } catch (NamingException ex) {
                     Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
             }
-            /*
-            if(soong.getName() != null && soong.getName().equals("remove")){
-                cart.remove();
-                session.setAttribute("Cart", null);
-            }*/
             
             cart.addProduct(soong);
             counter.newProduct(session.getId());

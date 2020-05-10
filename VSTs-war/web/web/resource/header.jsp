@@ -13,7 +13,11 @@
                             <li><a href="web/song.jsp">VST Searcher</a></li>
                             <li><a href="web/catalogue.jsp">Catalogue</a></li>
                             <div class="cart">
-                            <button style="font-size:24px"><i class="fa fa-shopping-cart"></i></button>
+                            <form action ="/VSTs-war/FrontController">
+                                <input type="hidden" name="command" value="ShowCartCommand">
+                                <button style="font-size:24px"><i class="fa fa-shopping-cart"></i></button>
+                                
+                            </form>
                             </div>
                         </ul>
                         

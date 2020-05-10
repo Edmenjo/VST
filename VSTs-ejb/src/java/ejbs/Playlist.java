@@ -14,25 +14,25 @@ import java.util.List;
  * @author zuzu
  */
 public class Playlist {
-    private List<Song> playlist;
+    private List<VST> playlist;
     private String res = "";
     
     public Playlist(){
         playlist = new ArrayList<>();
     }
     
-    public List<Song> getPlaylist(){
+    public List<VST> getPlaylist(){
         return playlist;
     }
     
-    public void addSongToPlaylist(Song song){
+    public void addSongToPlaylist(VST song){
         playlist.add(song);
     }
     
     
     @Override
     public String toString(){
-        for(Song recorrer: playlist){
+        for(VST recorrer: playlist){
             res += recorrer.toString() + "<br>";
         }
         return res;

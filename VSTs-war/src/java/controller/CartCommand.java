@@ -5,10 +5,17 @@
  */
 package controller;
 
+import control.EjemploServlet;
+import ejbs.Catalogue;
+import ejbs.Counter;
 import ejbs.Playlist;
-import ejbs.Song;
+import ejbs.VST;
 import ejbs.vstCartLocal;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
@@ -18,25 +25,44 @@ import javax.servlet.http.HttpSession;
  */
 public class CartCommand extends FrontCommand {
 
+    private VST vst;
     private HttpSession session;
+    private Counter counter;
+    
     @Override
     public void process() throws ServletException, IOException {
         session = request.getSession(true);
+        try {
+            counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
+        } catch (NamingException ex) {
+            Logger.getLogger(CartCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
         addToCart();
-        forward("/web/song.jsp");
+        forward("/web/catalogue.jsp");
     }
 
     private void addToCart() {
+        
+        vst = new VST(request.getParameter("vst"));
+        
         vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
-
-        String product = request.getParameter("product");
         
-        Song song1 = new Song (product);
+        if(cart == null) {
+            try {
+                cart = (vstCartLocal) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/vstCart!ejbs.vstCartLocal");
+                session.setAttribute("Cart", cart);
+                
+                counter.newUser(session.getId());
+                
+            } catch (NamingException ex) {
+                Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
-        Playlist playlist = new Playlist();
-        playlist.addSongToPlaylist(song1);
-
-        cart.addProduct(song1);
+        
+        }
+            cart.addProduct(vst);
+            counter.newProduct(session.getId());
+            
     }
     
 }

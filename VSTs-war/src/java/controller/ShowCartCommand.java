@@ -21,29 +21,20 @@ import javax.servlet.http.HttpSession;
  *
  * @author zuzu
  */
-public class CatalogueCommand extends FrontCommand {
+public class ShowCartCommand extends FrontCommand{
     
-    private Catalogue catalogue;
     private HttpSession session;
     private Counter counter;
     
     @Override
     public void process() throws ServletException, IOException {
         session = request.getSession(true);
-        showCatalogue();
-        forward("/web/catalogue.jsp");
+        showCartContent();
+        forward("/web/cart.jsp");
     }
 
-    private void showCatalogue() {
+    private void showCartContent() {
         vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
-        if(session.getAttribute("catalogue") == null){
-            try {
-                catalogue = (Catalogue) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Catalogue!ejbs.Catalogue");
-                session.setAttribute("catalogue",catalogue);
-            } catch (NamingException ex) {
-                Logger.getLogger(CatalogueCommand.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
         if(cart == null) {
             try {
                 cart = (vstCartLocal) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/vstCart!ejbs.vstCartLocal");
@@ -53,10 +44,8 @@ public class CatalogueCommand extends FrontCommand {
             } catch (NamingException ex) {
                 Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        catalogue.addToCatalogue();
         
             }
     }
     
 }
-
