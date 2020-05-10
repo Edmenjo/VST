@@ -29,12 +29,7 @@
             Catalogue catalogue;
             catalogue = (Catalogue) session.getAttribute("catalogue");
             if(cart!=null){
-                for(VST vstCatalogue: catalogue.getCatalogue()){
-           
-            
-            
-            
-            
+                for(VST vstCatalogue: catalogue.getCatalogue()){    
         %>        
         <form onSubmit="if(!confirm('Do you really want to add to the cart?')){return false;}">
             <label> <%=vstCatalogue%> </label>
