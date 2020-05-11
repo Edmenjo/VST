@@ -29,8 +29,10 @@
             Catalogue catalogue;
             catalogue = (Catalogue) session.getAttribute("catalogue");
             if(cart!=null){
+<<<<<<< HEAD
                 for(VST vstCatalogue: catalogue.getCatalogue()){    
         %>        
+<<<<<<< HEAD
         <form onSubmit="if(!confirm('Do you really want to add it?')){return false;}">
             <label> <%=vstCatalogue%> </label>
             <input type="hidden" name="command" value="CartCommand"></input>
