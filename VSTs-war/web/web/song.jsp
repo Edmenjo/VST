@@ -10,8 +10,6 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="ejbs.Counter"%>
 <%@page import="ejbs.vstCartLocal"%>
-<%@page import="ejbs.Playlist"%>
-<%@page import="ejbs.Song"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,12 +48,14 @@
            
             
                 
-                    <form onSubmit="if(!confirm('Do you really want to add to the cart?')){return false;}">
+                    <form onSubmit="if(!confirm('Do you really want to add this plugin?')){return false;}">
                         <label> <%=vst1%> </label>
                         <input type="hidden" name="command" value="SongCommand"></input>
-                
+                        
                         <button type="submit" >Add</button>
                         
+                        <button type="submit" >Wish</button>
+                        <input type="hidden" name="command" value="SongCommand"></input>
                     </form>
 
             <%    

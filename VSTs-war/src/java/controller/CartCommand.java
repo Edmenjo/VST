@@ -5,8 +5,6 @@
  */
 package controller;
 
-import control.EjemploServlet;
-import ejbs.Catalogue;
 import ejbs.Counter;
 import ejbs.VST;
 import ejbs.vstCartLocal;
@@ -54,7 +52,7 @@ public class CartCommand extends FrontCommand {
                 counter.newUser(session.getId());
                 
             } catch (NamingException ex) {
-                Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CartCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
         
         

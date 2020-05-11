@@ -5,8 +5,6 @@
  */
 package controller;
 
-import control.EjemploServlet;
-import ejbs.Catalogue;
 import ejbs.Counter;
 import ejbs.vstCartLocal;
 import java.io.IOException;
@@ -42,7 +40,7 @@ public class ShowCartCommand extends FrontCommand{
                 counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
                 counter.newUser(session.getId());
             } catch (NamingException ex) {
-                Logger.getLogger(EjemploServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ShowCartCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
         
             }

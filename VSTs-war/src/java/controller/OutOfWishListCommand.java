@@ -5,10 +5,18 @@
  */
 package controller;
 
+import java.io.IOException;
+import javax.servlet.ServletException;
+
 /**
  *
  * @author zuzu
  */
-public class WishCommand {
+public class OutOfWishListCommand extends FrontCommand{
+
+    @Override
+    public void process() throws ServletException, IOException {
+        
+    }
     
 }

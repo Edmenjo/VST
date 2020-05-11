@@ -24,7 +24,6 @@
         <h1>Cart</h1>
         
         <%
-            String cartP = "";
         vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
         
         for(VST cartContent: cart.getProducts()){%>

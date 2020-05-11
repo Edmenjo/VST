@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controller;
-
 import ejbs.VST;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -18,7 +17,6 @@ public class SearchCommand extends FrontCommand{
 
     private HttpSession session;
     VST vst1;
-    VST vst2;
     
     @Override
     public void process() throws ServletException, IOException {
@@ -30,7 +28,6 @@ public class SearchCommand extends FrontCommand{
     private void checkSearch(){
         String product = request.getParameter("product");
         vst1  = new VST ("Ninety - MIDI Collection");
-        vst2 = new VST ("Yellow - Hip Hop Sample Pack");
         
         if(product.equals("Ninety") || product.equals("ninety")){
             session.setAttribute("vst", vst1);
