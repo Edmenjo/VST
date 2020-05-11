@@ -1,9 +1,3 @@
-<%-- 
-    Document   : comprueba
-    Created on : 22-mar-2020, 20:42:49
-    Author     : zuzu
---%>
-
 <%@page import="ejbs.vstCartLocal"%>
 <%@page import="ejbs.Catalogue"%>
 <%@page import="ejbs.VST"%>
@@ -29,21 +23,15 @@
             Catalogue catalogue;
             catalogue = (Catalogue) session.getAttribute("catalogue");
             if(cart!=null){
-<<<<<<< HEAD
                 for(VST vstCatalogue: catalogue.getCatalogue()){    
-        %>        
-<<<<<<< HEAD
-        <form onSubmit="if(!confirm('Do you really want to add it?')){return false;}">
+            %>
+        <form onSubmit="if(!confirm('Do you really want to add to the cart?')){return false;}">
             <label> <%=vstCatalogue%> </label>
             <input type="hidden" name="command" value="CartCommand"></input>
             <input type="hidden" name="vst" value="<%=vstCatalogue%>">
             <button type="submit" >Add</button>
-            
-            <button type="submit" >Wish</button>
-            <input type="hidden" name="command" value="WishCommand"></input>
         </form>
-        <%
-                    
+        <%  
                 }
             }
         %>
