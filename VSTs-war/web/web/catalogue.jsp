@@ -31,11 +31,14 @@
             if(cart!=null){
                 for(VST vstCatalogue: catalogue.getCatalogue()){    
         %>        
-        <form onSubmit="if(!confirm('Do you really want to add to the cart?')){return false;}">
+        <form onSubmit="if(!confirm('Do you really want to add it?')){return false;}">
             <label> <%=vstCatalogue%> </label>
             <input type="hidden" name="command" value="CartCommand"></input>
             <input type="hidden" name="vst" value="<%=vstCatalogue%>">
             <button type="submit" >Add</button>
+            
+            <button type="submit" >Wish</button>
+            <input type="hidden" name="command" value="WishCommand"></input>
         </form>
         <%
                     

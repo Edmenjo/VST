@@ -12,8 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ejbs.Playlist;
-import ejbs.Song;
 import ejbs.VST;
 import ejbs.vstCartLocal;
 import javax.ejb.EJB;
@@ -32,7 +30,6 @@ public class SongCommand extends FrontCommand {
     Counter counter;
     
     private HttpSession session;
-    private Playlist playlist;
 
 
     @Override
