@@ -50,12 +50,12 @@
                 
                     <form onSubmit="if(!confirm('Do you really want to add this plugin?')){return false;}">
                         <label> <%=vst1%> </label>
-                        <input type="hidden" name="command" value="SongCommand"></input>
+                        <input type="hidden" name="command" value="VstCommand"></input>
                         
                         <button type="submit" >Add</button>
                         
                         <button type="submit" >Wish</button>
-                        <input type="hidden" name="command" value="SongCommand"></input>
+                        <input type="hidden" name="command" value="VstCommand"></input>
                     </form>
 
             <%    

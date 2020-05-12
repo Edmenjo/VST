@@ -12,7 +12,7 @@
                     <nav>
                         <ul>
                             <li><a href="web/main.jsp">Home</a></li>
-                            <li><a href="web/song.jsp">VST Searcher</a></li>
+                            <li><a href="web/vst.jsp">VST Searcher</a></li>
                             <li><a href="web/catalogue.jsp">Catalogue</a></li>
                             <div class="cart">
                             <form action ="/VSTs-war/FrontController">

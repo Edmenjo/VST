@@ -1,35 +1,23 @@
 <%-- 
-    Document   : cart
-    Created on : 09-may-2020, 18:25:25
+    Document   : log
+    Created on : 12-may-2020, 1:31:13
     Author     : zuzu
 --%>
 
-
-<%@page import="ejbs.vstCartLocal"%>
-<%@page import="ejbs.VST"%>
+<%@page import="javax.naming.InitialContext"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="/VSTs-war/web/resource/main.css"/>
-        <title>Cart</title>
+        <title>Log</title>
     </head>
     <body>
         <jsp:include page="resource/header.jsp" />
         <div class="forms">
-        <h1>Cart</h1>
-        
-        <%
-        vstCartLocal cart = (vstCartLocal) session.getAttribute("Cart");
-        
-        for(VST cartContent: cart.getProducts()){%>
-        <h3><%=cartContent%></h3>
-        <%
-        }
-        %>
-        </div>
+            <p>This is the log</p>
+            </div>
         <jsp:include page="resource/footer.jsp" />
     </body>
 </html>

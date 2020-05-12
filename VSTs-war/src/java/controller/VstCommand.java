@@ -21,7 +21,7 @@ import javax.naming.NamingException;
  *
  * @author zuzu
  */
-public class SongCommand extends FrontCommand {
+public class VstCommand extends FrontCommand {
     
     
     Counter counter;
@@ -36,14 +36,14 @@ public class SongCommand extends FrontCommand {
         try {
             counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
         } catch (NamingException ex) {
-            Logger.getLogger(SongCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VstCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         getVST();
         try {
-            forward("/web/song.jsp");
+            forward("/web/vst.jsp");
         } catch (ServletException | IOException ex) {
-            Logger.getLogger(SongCommand.class.getName()).log(Level.SEVERE, null, ex); 
+            Logger.getLogger(VstCommand.class.getName()).log(Level.SEVERE, null, ex); 
         }
         
     }
@@ -63,7 +63,7 @@ public class SongCommand extends FrontCommand {
                     session.setAttribute("Cart", cart);
                     counter.newUser(session.getId());
                 } catch (NamingException ex) {
-                    Logger.getLogger(SongCommand.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VstCommand.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
             }

@@ -27,12 +27,14 @@
             %>
         <form onSubmit="if(!confirm('Do you really want to add this plugin?')){return false;}">
             <label> <%=vstCatalogue%> </label>
-            <input type="hidden" name="command" value="CartCommand"></input>
+            <input type="hidden" name="command" value="AddToCartCommand"></input>
             <input type="hidden" name="vst" value="<%=vstCatalogue%>">
             <button type="submit" >Add</button>
-            
+        </form>    
+        <form onSubmit="if(!confirm('Do you really want to add this plugin?')){return false;}">
+            <input type="hidden" name="command" value="AddToWishCommand"></input>
+            <input type="hidden" name="vst" value="<%=vstCatalogue%>">
             <button type="submit" >Wish</button>
-            <input type="hidden" name="command" value="WishCommand"></input>
         </form>
         <%  
                 }

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author zuzu
  */
-public class CartCommand extends FrontCommand {
+public class AddToCartCommand extends FrontCommand {
 
     private VST vst;
     private HttpSession session;
@@ -32,7 +32,7 @@ public class CartCommand extends FrontCommand {
         try {
             counter = (Counter) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/Counter!ejbs.Counter");
         } catch (NamingException ex) {
-            Logger.getLogger(CartCommand.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddToCartCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
         addToCart();
         forward("/web/catalogue.jsp");
@@ -52,7 +52,7 @@ public class CartCommand extends FrontCommand {
                 counter.newUser(session.getId());
                 
             } catch (NamingException ex) {
-                Logger.getLogger(CartCommand.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AddToCartCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
         
         

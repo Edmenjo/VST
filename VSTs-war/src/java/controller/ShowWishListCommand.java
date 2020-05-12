@@ -34,7 +34,7 @@ public class ShowWishListCommand extends FrontCommand{
         
         if(wishList == null) {
             try {
-                wishList = (WishList) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/WishList!ejbs.WishLsit");
+                wishList = (WishList) InitialContext.doLookup("java:global/VSTs/VSTs-ejb/WishList!ejbs.WishList");
                 
                 session.setAttribute("Wish", wishList);
             } catch (NamingException ex) {
@@ -42,6 +42,7 @@ public class ShowWishListCommand extends FrontCommand{
             }
         
         }
+
     }
     
 }

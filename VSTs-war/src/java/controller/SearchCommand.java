@@ -22,7 +22,7 @@ public class SearchCommand extends FrontCommand{
     public void process() throws ServletException, IOException {
         session = request.getSession(true);
         checkSearch();
-        forward("/web/song.jsp");
+        forward("/web/vst.jsp");
     }
     
     private void checkSearch(){

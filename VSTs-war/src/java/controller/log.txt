@@ -1,1 +1,2 @@
-El comando null no existe.
+
+SingletonLog::noIteration<br> 

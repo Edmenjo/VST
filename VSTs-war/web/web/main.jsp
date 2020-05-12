@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Songs & Ilustrations</title>
+        <title>VST Plugins for your beats</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -35,7 +35,7 @@ and open the template in the editor.
         <div class="form2">
         <form action="/VSTs-war/FrontController">
             <input type="text" name="peticion" placeholder="Look for a VST Plugin...">
-            <input type="hidden" name="command" value="SongCommand"><br>
+            <input type="hidden" name="command" value="VstCommand"><br>
             
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     

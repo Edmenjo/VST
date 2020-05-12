@@ -6,7 +6,8 @@
 
             <footer>
                 <div class="footer">
-                    <p>Ilustrations made by @jorgepla_art</p>
+                    <li>Watch your statistics <a href="web/statistics.jsp">HERE</a></li>
+                    <li>Also, take a look to the <a href="web/log.jsp">LOG</a></li>
                 </div>
             </footer>
     </body>

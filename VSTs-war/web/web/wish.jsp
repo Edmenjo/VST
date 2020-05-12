@@ -22,16 +22,15 @@
         <%
         WishList wishList = (WishList) session.getAttribute("Wish");
         
-        //for(VST wishListContent: wishList.getProducts()){%>
-        <h2><%=wishList%></h2>
+        for(VST wishListContent: wishList.getProducts()){%>
         <form onSubmit="if(!confirm('Do you really want to remove from your Wish List?')){return false;}">
-            <label> p </label>
-            <input type="hidden" name="command" value="OutOfWishListCommand"></input>
-            <input type="hidden" name="vst" value="">
+            <label> <%=wishListContent%> </label>
+            <input type="hidden" name="command" value="ShowWishListCommand"></input>
+            <input type="hidden" name="vst" value="<%=wishListContent%>">
             <button type="submit" >Remove</button>
         </form>
         <%
-        //}
+        }
         %>
         </div>
         <jsp:include page="resource/footer.jsp" />
